@@ -1,0 +1,60 @@
+{{#title-bar}}
+  Desktop and Mobile Clients
+{{/title-bar}}
+
+{{#paper-content class="clients" flex-layout="column" flex=true}}
+  <p class="content">
+    Synchronize your file storage with your local device using a desktop or mobile client. Davros is compatible with the <a href="https://owncloud.org" target="_blank">ownCloud</a> Desktop, iOS, and Android clients. Davros is neither affiliated with nor endorsed by ownCloud.
+
+    <h2>Step 1: Download a client from ownCloud</h2>
+
+    <div class="client-download">
+      <div>Choose your platform from the client download page:</div>
+
+      <a class="md-button md-default-theme md-primary md-raised" href="https://owncloud.org/install/#install-clients" target="_blank">
+        Download client
+      </a>
+    </div>
+
+    <h2>Step 2: Configure the client</h2>
+
+    Start the client. In the <strong>Server Name</strong> field, use this value:
+    <div class="server-url">
+      {{#if useAuthInServerUrl}}
+        {{offer-iframe content="$API_PROTO//$GRAIN_TITLE_SLUG:$API_TOKEN@$API_HOST/" clipboardButton="right" unauthenticated=unauthenticated}}
+      {{else}}
+        {{offer-iframe content="$API_PROTO//$API_HOST/" clipboardButton="right" unauthenticated=unauthenticated}}
+      {{/if}}
+    </div>
+    If you are using WebDav, use this path:
+    <div class="server-url">
+      {{#if useAuthInServerUrl}}
+        {{offer-iframe content="$API_PROTO//$GRAIN_TITLE_SLUG:$API_TOKEN@$API_HOST/remote.php/webdav/" clipboardButton="right" unauthenticated=unauthenticated}}
+      {{else}}
+        {{offer-iframe content="$API_PROTO//$API_HOST/remote.php/webdav/" clipboardButton="right" unauthenticated=unauthenticated}}
+      {{/if}}
+    </div>
+
+      {{#paper-switch class="use-auth-in-url" noink=true value=useAuthInServerUrl onChange=(action (mut useAuthInServerUrl))}} Put auth in URL (command line use) {{/paper-switch}}
+
+    On the <strong>Enter user credentials</strong> step, use:
+
+    <div class="authentication">
+      <div class="username-field">
+        <label for="username">Username</label>
+        <div class="username">{{offer-iframe content="$GRAIN_TITLE_SLUG" clipboardButton="right" unauthenticated=unauthenticated}}</div>
+      </div>
+
+      <div class="password-field">
+        <label for="password">Password</label>
+        <div class="password">{{offer-iframe content="$API_TOKEN" clipboardButton="right" unauthenticated=unauthenticated}}</div>
+      </div>
+    </div>
+
+    <em>
+      Note: credentials generated here expire within 5 minutes if not used, so if
+      you see authentication failures, first try coming back to this page and re-copying.
+    </em>
+  </p>
+
+{{/paper-content}}

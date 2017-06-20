@@ -1,0 +1,23 @@
+{{#if active}}
+  {{#paper-dialog fullscreen=true origin=".actions"}}
+    {{#paper-toolbar}}
+      <div class="md-toolbar-tools">
+        <h2>New Directory</h2>
+        <span class="flex"></span>
+        {{#paper-button iconButton=true onClick=(action "close")}}{{paper-icon icon="close"}}{{/paper-button}}
+      </div>
+    {{/paper-toolbar}}
+
+    {{#paper-form onSubmit=(action "create") as |form|}}
+      {{#paper-dialog-content}}
+        {{form.input label="Name" autofocus=true value=directoryName customValidations=directoryValidation onChange=(action (mut directoryName))}}
+      {{/paper-dialog-content}}
+
+      {{#paper-dialog-actions class="layout-row"}}
+        <span class="flex"></span>
+        {{#paper-button primary=true onClick=(action "close")}}Cancel{{/paper-button}}
+        {{#form.submit-button primary=true raised=true disabled=form.isInvalid}}Create{{/form.submit-button}}
+      {{/paper-dialog-actions}}
+    {{/paper-form}}
+  {{/paper-dialog}}
+{{/if}}

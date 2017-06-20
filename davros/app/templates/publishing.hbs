@@ -1,0 +1,59 @@
+{{#title-bar}}
+  Web Publishing
+{{/title-bar}}
+
+{{#paper-content class="publishing" flex-layout="column" flex=true}}
+  <p class="content">
+    You can publish this shared directory to the web. Add <code>index.html</code> to the top level to set up your site. All files in the shared directory will be publicly accessible.
+
+    {{#if publishing.publicId}}
+      <div class="toggle-publishing">
+        {{#paper-button raised=true warn=true onClick=(route-action "unpublish")}}Disable{{/paper-button}}
+        <strong>
+          Publishing is Enabled
+          {{#if publishing.domain}}
+            with custom domain {{publishing.domain}}
+          {{/if}}
+        </strong>
+      </div>
+
+      <div class="publish-info">
+        <div class="auto-url">
+          Preview available from:
+          <a target="_blank" href={{publishing.autoUrl}}>{{publishing.autoUrl}}</a>
+        </div>
+
+        {{#if publishing.domain}}
+          <div class="dns-setup">
+            <h2>Instructions for setting up your own domain or subdomain:</h2>
+
+            <div class="records">
+              Add the following DNS records to your domain registrar:
+              <pre>
+    {{publishing.domain}}. IN CNAME {{publishing.host}}
+    sandstorm-www.{{publishing.domain}}. IN TXT {{publishing.publicId}}
+              </pre>
+
+              {{#if domainIsApex}}
+                <div class="note">
+                  The CNAME configuration above only works on subdomains. You should either use www.{{publishing.domain}} for the custom domain or replace <code>IN&nbsp;CNAME&nbsp;{{publishing.host}}</code> with <code>IN&nbsp;A&nbsp;<i>(IP&nbsp;of&nbsp;{{publishing.host}})</i></code>. If <b>{{publishing.host}}</b>'s IP ever changes, you'll need to update the DNS record.
+                </div>
+              {{/if}}
+            </div>
+          </div>
+        {{/if}}
+      </div>
+    {{else}}
+
+      <div class="setup">
+        {{paper-input label="Optional Custom Domain" value=domain customValidations=apexValidation onChange=(action (mut domain))}}
+      </div>
+
+      <div class="toggle-publishing">
+        {{#paper-button raised=true primary=true onClick=(route-action "publish")}}Enable{{/paper-button}}
+        <strong>Publishing is Disabled</strong>
+      </div>
+    {{/if}}
+  </p>
+
+{{/paper-content}}

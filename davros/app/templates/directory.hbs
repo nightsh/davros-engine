@@ -1,0 +1,92 @@
+{{#davros-uploader onfileadd="uploadFile" for="upload-placeholder" for-dropzone="content" as |queue dropzone|}}
+  {{#if queue.length}}
+    <div class="upload-progress">
+      {{paper-progress-linear warn=true value=queue.progress}}
+    </div>
+  {{/if}}
+  <div id="upload-placeholder"></div>
+{{/davros-uploader}}
+<div id="dropzone-display">
+  <div class="message">
+    {{paper-icon "add-circle"}}
+    Drop files or directories to add them to
+    {{path-breadcrumb path=model.path}}
+  </div>
+</div>
+
+{{#title-bar}}
+  <div class="title">
+    Files in
+    {{path-breadcrumb path=model.path}}
+
+    {{#if model.name}}
+      {{model.name}} /
+    {{/if}}
+  </div>
+
+  {{partial 'directory-menu'}}
+{{/title-bar}}
+
+{{#if model.sortedFiles}}
+  <table class="file-list {{if showExtraFields '' 'noExtraFields'}}">
+    <thead>
+      <tr>
+        <th class="name">Name</th>
+        <th class="updated" {{action (toggle this "showExtraFields")}}>Updated</th>
+        <th class="size" {{action (toggle this "showExtraFields")}}>Size</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each model.sortedFiles as |file|}}
+        <tr>
+          {{#link-to 'file' (unbound file.linkedPath) class="name" tagName="td"}}
+            <div class="filename">
+              {{#if file.isDirectory}}
+                <md-icon class="paper-icon md-font material-icons md-default-theme">folder</md-icon>
+              {{else}}
+              {{#if (eq file.type 'image')}}
+                {{image-thumbnail original=file.rawPath timestamp=file.mtime width=24 height=24 op="fit"}}
+              {{else}}
+                <md-icon aria-label="type {{file.type}}" class="paper-icon md-font material-icons md-default-theme">{{-paper-underscore file.typeIcon}}</md-icon>
+              {{/if}}
+            {{/if}}
+
+              <div class="truncated">{{file.name}}</div>
+            </div>
+          {{/link-to}}
+
+          {{#if showExtraFields}}
+            <td class="updated" title="{{file.mtime}}">
+              <span class="short">
+                {{#if model.lotsOfFiles}}
+                  {{moment-from-now file.mtime locale="en-short" hideSuffix=true}}
+                {{else}}
+                  {{moment-from-now file.mtime locale="en-short" interval=5000 hideSuffix=true}}
+                {{/if}}
+              </span>
+
+              <span class="long">
+                {{#if model.lotsOfFiles}}
+                  {{moment-from-now file.mtime locale="en"}}
+                {{else}}
+                  {{moment-from-now file.mtime locale="en" interval=5000}}
+                {{/if}}
+              </span>
+            </td>
+
+            <td class="size" title="{{commify file.size}} bytes">
+              {{filesize file.size}}
+            </td>
+          {{/if}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <div class="empty-notice">
+    This directory is empty. You can <a href="#" {{action "chooseUpload"}}>upload some files</a> or just drag them in.
+  </div>
+{{/if}}
+
+{{partial 'plugins/gallery'}}

@@ -1,0 +1,34 @@
+{{#title-bar}}
+  <div class="title">
+    Viewing
+    {{path-breadcrumb path=model.path}}
+    {{model.name}}
+  </div>
+
+  {{partial 'file-menu'}}
+{{/title-bar}}
+
+<div class="file file-{{model.type}}">
+  <div class="meta">
+    <div class="filename">
+
+      <a href="{{model.rawPath}}">
+        {{model.name}}
+      </a>
+    </div>
+
+    <div class="fsinfo">
+      <span title="{{model.mtime}}" class="updated">Updated {{moment-from-now model.mtime locale="en" interval=5000}}</span>
+      &middot;
+      <span title="{{commify model.size}} bytes" class="size">{{filesize model.size}}</span>
+      &middot;
+      <a href="{{model.rawPath}}" target="_blank">Download Original</a>
+      {{#if publicUrl}}
+        &middot;
+        <a href="{{publicUrl}}" target="_blank">Public URL</a>
+      {{/if}}
+    </div>
+  </div>
+
+  {{component model.typeComponent model=model class="preview"}}
+</div>
