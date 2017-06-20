@@ -15,7 +15,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "https://github.com/nightsh/ember-engine-davros",
+  "repository": "https://github.com/nightsh/davros-engine",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
@@ -23,7 +23,8 @@
   },
   "dependencies": {
     "ember-cli-babel": "^6.0.0",
-    "ember-cli-htmlbars": "^1.1.1"
+    "ember-cli-htmlbars": "^1.1.1",
+    "ember-engines": "^0.5.8"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -38,7 +39,6 @@
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-disable-prototype-extensions": "^1.1.0",
-    "ember-engines": "^0.5.8",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.0.0",
