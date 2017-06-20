@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import Webdav from 'davros-engine/lib/webdav';
+import Webdav from 'ember-engine-davros/lib/webdav';
 import jQuery from 'jquery';
 
 export default Ember.Mixin.create({

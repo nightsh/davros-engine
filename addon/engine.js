@@ -3,7 +3,7 @@ import Engine from 'ember-engines/engine';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
 import config from './config/environment';
-import 'davros-engine/lib/moment-locale-updates';
+import 'ember-engine-davros/lib/moment-locale-updates';
 
 
 const { modulePrefix } = config;

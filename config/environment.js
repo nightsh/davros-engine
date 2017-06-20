@@ -3,7 +3,7 @@
 
 module.exports = function(environment/* , appConfig */) {
   const ENV = {
-    modulePrefix: 'davros-engine',
+    modulePrefix: 'ember-engine-davros',
     environment: environment
   };
 

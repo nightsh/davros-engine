@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import GalleryPlugin from 'davros-engine/mixins/directory/gallery';
+import GalleryPlugin from 'ember-engine-davros/mixins/directory/gallery';
 
 const { get, computed, inject } = Ember;
 

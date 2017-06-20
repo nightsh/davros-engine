@@ -40,7 +40,9 @@
     "walker": "^1.0.7",
     "ws": "^2.0.2",
     "ember-cli-babel": "^6.0.0",
-    "ember-cli-htmlbars": "^1.1.1",
+    "ember-cli-htmlbars": "^1.1.1"
+  },
+  "peerDependencies": {
     "ember-engines": "^0.5.8"
   },
   "devDependencies": {
