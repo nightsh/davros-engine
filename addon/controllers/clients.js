@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import owncloudStatus from 'davros/lib/owncloud';
+import owncloudStatus from 'davros-engine/lib/owncloud';
 
 export default Ember.Controller.extend({
   unauthenticated: owncloudStatus

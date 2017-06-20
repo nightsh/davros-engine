@@ -1,7 +1,7 @@
 import Ember from 'ember';
-import filetypes from 'davros/lib/filetypes';
-import filetypeIcons from 'davros/lib/filetype-icons';
-import Webdav from 'davros/mixins/webdav';
+import filetypes from 'davros-engine/lib/filetypes';
+import filetypeIcons from 'davros-engine/lib/filetype-icons';
+import Webdav from 'davros-engine/mixins/webdav';
 
 export default Ember.Object.extend(Webdav, {
   path: null,  // file's path within the dav server, excluding the dav base

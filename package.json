@@ -1,5 +1,5 @@
 {
-  "name": "davros-engine",
+  "name": "ember-engine-davros",
   "version": "0.0.1",
   "description": "Ember engine supporting the Davros file manager",
   "keywords": [
@@ -30,12 +30,10 @@
     "compression": "^1.6.2",
     "concat-files": "^0.1.1",
     "dirStat": "0.0.2",
-    "ember-resolver": "^2.0.3",
     "express": "^4.14.1",
     "fs-promise": "^1.0.0",
     "imagemagick-stream": "^4.1.1",
     "jsDAV": "https://github.com/mnutt/jsDAV.git#0556df11183",
-    "loader.js": "^4.1.0",
     "mkdirp": "0.5.1",
     "morgan": "^1.8.0",
     "multiparty": "4.1.3",
