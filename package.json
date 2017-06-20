@@ -1,17 +1,21 @@
 {
   "name": "davros-engine",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.1",
+  "description": "Ember engine supporting the Davros file manager",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "ember-engine",
+    "davros",
+    "files",
+    "filesystem"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Victor Nițu",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/nightsh/davros-engine",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
