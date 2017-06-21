@@ -44,7 +44,6 @@
   },
   "peerDependencies": {
     "ember-cli-sass": "^6.2.0",
-    "ember-engines": "^0.5.8",
     "ember-paper": "^1.0.0-alpha.19"
   },
   "devDependencies": {
