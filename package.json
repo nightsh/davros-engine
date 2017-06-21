@@ -43,7 +43,9 @@
     "ember-cli-htmlbars": "^1.1.1"
   },
   "peerDependencies": {
-    "ember-engines": "^0.5.8"
+    "ember-cli-sass": "^6.2.0",
+    "ember-engines": "^0.5.8",
+    "ember-paper": "^1.0.0-alpha.19"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -60,7 +62,7 @@
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
-    "ember-resolver": "^4.0.0",
+    "ember-resolver": "^2.0.3",
     "ember-source": "~2.12.0",
     "loader.js": "^4.2.3"
   },
