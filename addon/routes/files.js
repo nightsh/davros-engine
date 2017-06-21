@@ -1,3 +1,3 @@
-import FileRoute from 'ember-engine-davros/routes/file';
+import FileRoute from 'davros/routes/file';
 
 export default FileRoute.extend();

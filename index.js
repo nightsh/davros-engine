@@ -2,6 +2,6 @@
 const EngineAddon = require('ember-engines/lib/engine-addon');
 
 module.exports = EngineAddon.extend({
-  name: 'ember-engine-davros',
+  name: 'davros',
   lazyLoading: true
 });

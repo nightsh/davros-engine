@@ -1,3 +1,3 @@
-import FileController from 'ember-engine-davros/controllers/file';
+import FileController from 'davros/controllers/file';
 
 export default FileController.extend();

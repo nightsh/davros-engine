@@ -1,4 +1,4 @@
-import Webdav from 'ember-engine-davros/lib/webdav';
+import Webdav from 'davros/lib/webdav';
 import Ember from 'ember';
 
 var pathsCompleted = {};

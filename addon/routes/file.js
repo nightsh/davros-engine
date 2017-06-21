@@ -1,8 +1,8 @@
 import Ember from 'ember';
 import fetch from 'ember-network/fetch';
 import $ from 'jquery';
-import File from 'ember-engine-davros/models/file';
-import ensureCollectionExists from 'ember-engine-davros/lib/ensure-collection-exists';
+import File from 'davros/models/file';
+import ensureCollectionExists from 'davros/lib/ensure-collection-exists';
 
 const { get, inject } = Ember;
 
